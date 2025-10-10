@@ -473,50 +473,63 @@ if ('IntersectionObserver' in window) {
 // ==========================================
 // DARK/LIGHT MODE TOGGLE
 // ==========================================
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
 
-// Check for saved theme preference or default to 'dark'
-const currentTheme = localStorage.getItem('theme') || 'dark';
-body.setAttribute('data-theme', currentTheme);
-
-// Update icon based on current theme
-function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    if (theme === 'dark') {
-        icon.className = 'fas fa-moon';
-        themeToggle.title = 'Switch to Light Mode';
-    } else {
-        icon.className = 'fas fa-sun';
-        themeToggle.title = 'Switch to Dark Mode';
+    if (!themeToggle) {
+        console.error('Theme toggle button not found!');
+        return;
     }
-}
 
-// Initialize theme icon
-updateThemeIcon(currentTheme);
+    // Check for saved theme preference or default to 'dark'
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', currentTheme);
 
-// Theme toggle functionality
-themeToggle.addEventListener('click', () => {
-    const currentTheme = body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-    
-    // Add smooth transition
-    body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-    setTimeout(() => {
-        body.style.transition = '';
-    }, 300);
+    // Update icon based on current theme
+    function updateThemeIcon(theme) {
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'dark') {
+            icon.className = 'fas fa-moon';
+            themeToggle.title = 'Switch to Light Mode';
+        } else {
+            icon.className = 'fas fa-sun';
+            themeToggle.title = 'Switch to Dark Mode';
+        }
+    }
+
+    // Initialize theme icon
+    updateThemeIcon(currentTheme);
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+        
+        // Add smooth transition
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    });
 });
 
 // ==========================================
 // DOWNLOAD CV AS PDF
 // ==========================================
-const downloadCV = document.getElementById('downloadCV');
+document.addEventListener('DOMContentLoaded', function() {
+    const downloadCV = document.getElementById('downloadCV');
 
-downloadCV.addEventListener('click', () => {
+    if (!downloadCV) {
+        console.error('Download CV button not found!');
+        return;
+    }
+
+    downloadCV.addEventListener('click', () => {
     // Show loading state
     const icon = downloadCV.querySelector('i');
     const originalIcon = icon.className;
@@ -659,6 +672,7 @@ downloadCV.addEventListener('click', () => {
         icon.className = originalIcon;
         downloadCV.disabled = false;
     }, 1000);
+    });
 });
 
 // ==========================================
