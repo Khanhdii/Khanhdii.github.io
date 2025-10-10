@@ -533,22 +533,28 @@ function initThemeToggle() {
     updateThemeIcon(currentTheme);
 
     // Theme toggle functionality
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
         console.log('Theme toggle clicked!');
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
-        console.log('Switching from', currentTheme, 'to', newTheme);
-        
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-        
-        // Add smooth transition
-        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-        setTimeout(() => {
-            body.style.transition = '';
-        }, 300);
+        // Toggle dropdown instead of switching theme
+        const dropdown = document.getElementById('themeDropdown');
+        if (dropdown) {
+            const isVisible = dropdown.style.opacity === '1' || dropdown.classList.contains('show');
+            if (isVisible) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+                dropdown.classList.remove('show');
+            } else {
+                dropdown.style.opacity = '1';
+                dropdown.style.visibility = 'visible';
+                dropdown.style.transform = 'translateY(0)';
+                dropdown.classList.add('show');
+            }
+        }
     });
 }
 
@@ -582,7 +588,10 @@ function initThemeCustomization() {
 
     // Add click listeners to theme options
     themeOptions.forEach(option => {
-        option.addEventListener('click', () => {
+        option.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const theme = option.getAttribute('data-theme');
             console.log('Switching to theme:', theme);
             
@@ -603,6 +612,14 @@ function initThemeCustomization() {
             
             // Show success message
             showThemeNotification(theme);
+            
+            // Hide dropdown
+            const dropdown = document.getElementById('themeDropdown');
+            if (dropdown) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-10px)';
+            }
         });
     });
 }
@@ -660,6 +677,18 @@ if (document.readyState === 'loading') {
 } else {
     initThemeCustomization();
 }
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    const themeSelector = document.querySelector('.theme-selector');
+    const dropdown = document.getElementById('themeDropdown');
+    
+    if (themeSelector && dropdown && !themeSelector.contains(e.target)) {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.transform = 'translateY(-10px)';
+    }
+});
 
 // ==========================================
 // DOWNLOAD CV AS PDF

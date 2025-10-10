@@ -221,7 +221,8 @@ body {
     z-index: 1000;
 }
 
-.theme-selector:hover .theme-dropdown {
+.theme-selector:hover .theme-dropdown,
+.theme-dropdown.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
