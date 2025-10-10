@@ -4,6 +4,6 @@ services:
   cv-website:
     build: .
     ports:
-      - "8080:80"
+      - "8083:80"
     container_name: khanhduy-cv
     restart: unless-stopped

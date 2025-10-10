@@ -306,7 +306,7 @@ class ParticleEffect {
 // ==========================================
 // COUNTER ANIMATION FOR STATS
 // ==========================================
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, suffix = '', duration = 2000) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
@@ -314,19 +314,19 @@ function animateCounter(element, target, duration = 2000) {
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            // Ensure final value is set correctly
+            // Ensure final value is set correctly with suffix
             if (target % 1 !== 0) {
-                element.textContent = target.toFixed(2);
+                element.textContent = target.toFixed(2) + suffix;
             } else {
-                element.textContent = Math.floor(target);
+                element.textContent = Math.floor(target) + suffix;
             }
             clearInterval(timer);
         } else {
             // Handle decimal numbers
             if (target % 1 !== 0) {
-                element.textContent = current.toFixed(2);
+                element.textContent = current.toFixed(2) + suffix;
             } else {
-                element.textContent = Math.floor(current);
+                element.textContent = Math.floor(current) + suffix;
             }
         }
     }, 16);
@@ -348,14 +348,8 @@ const statsObserver = new IntersectionObserver((entries) => {
                 match = originalValue.match(/#(\d+)/);
                 if (match) {
                     const target = parseInt(match[1]);
-                    const suffix = originalValue.replace(match[0], '');
-                    
-                    animateCounter(statNumber, target);
-                    
-                    // Add suffix back after animation
-                    setTimeout(() => {
-                        statNumber.textContent = originalValue;
-                    }, 2000);
+                    // Animate with # prefix
+                    animateCounter(statNumber, target, '#');
                 }
             } else {
                 // Handle "10+", "3.77" cases
@@ -363,13 +357,8 @@ const statsObserver = new IntersectionObserver((entries) => {
                 if (match) {
                     const target = parseFloat(match[0]);
                     const suffix = originalValue.replace(match[0], '');
-                    
-                    animateCounter(statNumber, target);
-                    
-                    // Add suffix back after animation
-                    setTimeout(() => {
-                        statNumber.textContent = originalValue;
-                    }, 2000);
+                    // Animate with suffix (e.g., "+")
+                    animateCounter(statNumber, target, suffix);
                 }
             }
             
