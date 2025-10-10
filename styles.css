@@ -307,6 +307,17 @@ body {
     animation: gradientShift 3s ease-in-out infinite;
     font-size: 1.1rem;
     transition: all var(--transition-base);
+    display: inline-block;
+}
+
+/* Force palette icon */
+.theme-toggle i.fa-palette {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #10b981, #f59e0b);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
 }
 
 .download-cv i {
