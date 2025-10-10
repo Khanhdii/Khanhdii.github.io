@@ -23,9 +23,29 @@
                 <li><a href="#skills" class="nav-link">Skills</a></li>
             </ul>
             <div class="nav-controls">
-                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <div class="theme-selector">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="theme-dropdown" id="themeDropdown">
+                        <button class="theme-option" data-theme="blue" title="Blue Theme">
+                            <div class="theme-preview blue"></div>
+                            <span>Blue</span>
+                        </button>
+                        <button class="theme-option" data-theme="purple" title="Purple Theme">
+                            <div class="theme-preview purple"></div>
+                            <span>Purple</span>
+                        </button>
+                        <button class="theme-option" data-theme="green" title="Green Theme">
+                            <div class="theme-preview green"></div>
+                            <span>Green</span>
+                        </button>
+                        <button class="theme-option" data-theme="orange" title="Orange Theme">
+                            <div class="theme-preview orange"></div>
+                            <span>Orange</span>
+                        </button>
+                    </div>
+                </div>
                 <button class="download-cv" id="downloadCV" title="Download CV as PDF">
                     <i class="fas fa-download"></i>
                 </button>

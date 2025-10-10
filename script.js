@@ -560,6 +560,108 @@ if (document.readyState === 'loading') {
 }
 
 // ==========================================
+// THEME CUSTOMIZATION
+// ==========================================
+function initThemeCustomization() {
+    console.log('Initializing theme customization...');
+    
+    const themeOptions = document.querySelectorAll('.theme-option');
+    const body = document.body;
+
+    if (!themeOptions.length) {
+        console.error('Theme options not found!');
+        return;
+    }
+
+    console.log('Theme options found:', themeOptions.length);
+
+    // Load saved theme or default to 'dark'
+    const savedTheme = localStorage.getItem('customTheme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
+    console.log('Loaded theme:', savedTheme);
+
+    // Add click listeners to theme options
+    themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.getAttribute('data-theme');
+            console.log('Switching to theme:', theme);
+            
+            // Remove previous theme classes
+            body.removeAttribute('data-theme');
+            
+            // Add new theme
+            body.setAttribute('data-theme', theme);
+            
+            // Save to localStorage
+            localStorage.setItem('customTheme', theme);
+            
+            // Add smooth transition
+            body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+            setTimeout(() => {
+                body.style.transition = '';
+            }, 300);
+            
+            // Show success message
+            showThemeNotification(theme);
+        });
+    });
+}
+
+function showThemeNotification(theme) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'theme-notification';
+    notification.innerHTML = `
+        <i class="fas fa-palette"></i>
+        <span>Switched to ${theme.charAt(0).toUpperCase() + theme.slice(1)} theme!</span>
+    `;
+    
+    // Add styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--bg-card);
+        color: var(--text-primary);
+        padding: 1rem 1.5rem;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--primary);
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(15px);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Initialize theme customization
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeCustomization);
+} else {
+    initThemeCustomization();
+}
+
+// ==========================================
 // DOWNLOAD CV AS PDF
 // ==========================================
 function initDownloadCV() {
