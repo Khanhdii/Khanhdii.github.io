@@ -192,6 +192,47 @@ body {
     width: 100%;
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle,
+.download-cv {
+    width: 40px;
+    height: 40px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover,
+.download-cv:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.theme-toggle i,
+.download-cv i {
+    font-size: 1rem;
+    transition: all var(--transition-base);
+}
+
+.theme-toggle:hover i,
+.download-cv:hover i {
+    transform: scale(1.1);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1390,9 +1431,89 @@ body {
 }
 
 /* ==========================================
+   LIGHT MODE THEME
+   ========================================== */
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-hover: #f1f5f9;
+    
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-light: #60a5fa;
+    --secondary: #8b5cf6;
+    --accent: #ec4899;
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+}
+
+[data-theme="light"] .gradient-orb {
+    opacity: 0.05;
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="light"] .summary-card,
+[data-theme="light"] .publication-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .skill-category,
+[data-theme="light"] .award-card,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .education-card,
+[data-theme="light"] .timeline-content {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .theme-toggle,
+[data-theme="light"] .download-cv {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .theme-toggle:hover,
+[data-theme="light"] .download-cv:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: var(--primary);
+}
+
+/* ==========================================
    RESPONSIVE DESIGN
    ========================================== */
 @media (max-width: 768px) {
+    .nav-controls {
+        gap: 0.5rem;
+    }
+    
+    .theme-toggle,
+    .download-cv {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .theme-toggle i,
+    .download-cv i {
+        font-size: 0.9rem;
+    }
+    
     .hamburger {
         display: flex;
     }

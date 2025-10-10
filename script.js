@@ -471,11 +471,203 @@ if ('IntersectionObserver' in window) {
 }
 
 // ==========================================
+// DARK/LIGHT MODE TOGGLE
+// ==========================================
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+// Check for saved theme preference or default to 'dark'
+const currentTheme = localStorage.getItem('theme') || 'dark';
+body.setAttribute('data-theme', currentTheme);
+
+// Update icon based on current theme
+function updateThemeIcon(theme) {
+    const icon = themeToggle.querySelector('i');
+    if (theme === 'dark') {
+        icon.className = 'fas fa-moon';
+        themeToggle.title = 'Switch to Light Mode';
+    } else {
+        icon.className = 'fas fa-sun';
+        themeToggle.title = 'Switch to Dark Mode';
+    }
+}
+
+// Initialize theme icon
+updateThemeIcon(currentTheme);
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', () => {
+    const currentTheme = body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+    
+    // Add smooth transition
+    body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+    setTimeout(() => {
+        body.style.transition = '';
+    }, 300);
+});
+
+// ==========================================
+// DOWNLOAD CV AS PDF
+// ==========================================
+const downloadCV = document.getElementById('downloadCV');
+
+downloadCV.addEventListener('click', () => {
+    // Show loading state
+    const icon = downloadCV.querySelector('i');
+    const originalIcon = icon.className;
+    icon.className = 'fas fa-spinner fa-spin';
+    downloadCV.disabled = true;
+    
+    // Create a simple PDF download (using browser's print to PDF)
+    setTimeout(() => {
+        // Create a new window with print-friendly content
+        const printWindow = window.open('', '_blank');
+        const printContent = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Cao Phan Khanh Duy - CV</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+                    .header { text-align: center; margin-bottom: 30px; }
+                    .name { font-size: 2.5em; font-weight: bold; color: #333; margin-bottom: 10px; }
+                    .title { font-size: 1.2em; color: #666; margin-bottom: 20px; }
+                    .contact { margin-bottom: 30px; }
+                    .section { margin-bottom: 25px; }
+                    .section h2 { color: #333; border-bottom: 2px solid #6366f1; padding-bottom: 5px; }
+                    .section h3 { color: #555; margin-top: 15px; }
+                    .section h4 { color: #666; margin-top: 10px; }
+                    .date { color: #888; font-style: italic; }
+                    .highlight { background-color: #f0f0f0; padding: 2px 4px; border-radius: 3px; }
+                    ul { margin: 10px 0; }
+                    li { margin: 5px 0; }
+                    .badge { background-color: #6366f1; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+                </style>
+            </head>
+            <body>
+                <div class="header">
+                    <div class="name">Cao Phan Khanh Duy</div>
+                    <div class="title">Data Scientist / AI Engineer</div>
+                    <div class="contact">
+                        +84-978-650-231 | hauduy20122002@gmail.com<br>
+                        Ho Chi Minh City - 700000, Vietnam
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2>OBJECTIVE</h2>
+                    <p>AI/ML Engineer with a strong research background in efficient deep learning. Experienced in building, optimizing, and deploying Transformer-based models. Focused on lightweight foundation model efficiency, quantization, and scalable training. First author of multiple Q1/Q2 publications and active contributor to reproducible AI research and open-source pipelines.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>PROFESSIONAL SUMMARY</h2>
+                    <ul>
+                        <li>E2E AI lifecycle: data collection/preprocessing → training/evaluation → deployment</li>
+                        <li>Production ML: real-time pipelines Spark/Flink → Apache Beam → PostgreSQL, containerized Docker, automated via CI/CD</li>
+                        <li>Research-to-production: first-author 2 Q2 publications, first-author 3 Q1 papers (Under review)</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>EDUCATION</h2>
+                    <h3>Industrial University of Ho Chi Minh City</h3>
+                    <h4>Bachelor of Engineering – Data Science</h4>
+                    <div class="date">08/2021 – 11/2025</div>
+                    <ul>
+                        <li><span class="badge">Valedictorian</span> October 2025 Ceremony – Ranked 1st overall among all university graduates</li>
+                        <li>GPA 3.77/4.00, Ranked 1 in Faculty of IT (4,000+ students)</li>
+                        <li>Thesis: proposed a Quantum-Inspired Algorithm – Grade 10/10</li>
+                        <li>6× merit-based scholarships (Top 5% over consecutive terms)</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>EXPERIENCE</h2>
+                    <h3>Data Scientist (Full-time)</h3>
+                    <h4>MS Digital - Nam Viet Media</h4>
+                    <div class="date">02/2025 – Present</div>
+                    <ul>
+                        <li>Designed scalable content recommendation and fraud detection systems serving 30K+ MAU</li>
+                        <li>Developed feature-store pipelines using Apache Beam + PostgreSQL for real-time data ingestion</li>
+                        <li>Conducted model compression & optimization for faster inference</li>
+                    </ul>
+                    
+                    <h3>Researcher (Intern)</h3>
+                    <h4>CIS Lab – National Chung Cheng University</h4>
+                    <div class="date">07/2024 – 12/2024</div>
+                    <ul>
+                        <li>Audio Anti-spoofing (Q2) — multi-channel (STFT/CQT/MFCC) + split-attention; experimental design, quantitative evaluation</li>
+                        <li>Identity Cues (Vision) — skeleton-based gait recognition with 99% accuracy; pipeline reproducibility evaluation</li>
+                        <li>Wrote experiment pipelines in PyTorch and Tensorflow; handled GPU resource scheduling and result reproducibility</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>PUBLICATIONS</h2>
+                    <p><strong>Under Review (Q1):</strong></p>
+                    <ul>
+                        <li>PBA-Net: A Dual-Branch Architecture with Positional Bias Attention and Multi-Scale CNN for Vietnamese Aspect-Based Sentiment Analysis</li>
+                        <li>ViGSA: A Multi-Task Aspect-Based Sentiment Analysis Model with Auxiliary Embedding and Global Sentiment Integration for Vietnamese Restaurant Reviews</li>
+                        <li>HQSMA: A quantum-enhanced hybrid attention mechanism for efficient anti-spoofing in automatic speaker verification</li>
+                    </ul>
+                    
+                    <p><strong>Published (Q2):</strong></p>
+                    <ul>
+                        <li>VDD: Voice deepfake detection with three-channel acoustic representations and advanced split-attention networks</li>
+                        <li>MBAAF: Multi-Branch Lightweight Architecture for Audio Spoofing Detection with Temporal Gating and CBAM-Based Attention Fusion</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>SKILLS</h2>
+                    <p><strong>Research:</strong> experimental design, model evaluation, error analysis</p>
+                    <p><strong>Programming:</strong> Python, SQL</p>
+                    <p><strong>ML Frameworks:</strong> PyTorch, TensorFlow, scikit-learn, HuggingFace</p>
+                    <p><strong>Data & Pipelines:</strong> Apache Beam, Flink, Spark, pandas/NumPy, PostgreSQL</p>
+                    <p><strong>MLOps/Deployment:</strong> Docker, CI/CD, MLflow, monitoring & drift detection</p>
+                </div>
+                
+                <div class="section">
+                    <h2>AWARDS & HONORS</h2>
+                    <ul>
+                        <li>Vietnam University Student Math Olympiad (Bronze Medal, Algebra Division) - 2023, 2025</li>
+                        <li>Excellent Student of the Year – Faculty of Information Technology - 2023</li>
+                        <li>Satellite Application Proposal Presenter - 2024</li>
+                        <li>Finalist – DIVE2025 (Data Insight Visualization Event) - 2025</li>
+                        <li>Presenter – 3MT (Three Minute Thesis) Competition - 2025</li>
+                    </ul>
+                </div>
+            </body>
+            </html>
+        `;
+        
+        printWindow.document.write(printContent);
+        printWindow.document.close();
+        
+        // Wait for content to load, then trigger print
+        setTimeout(() => {
+            printWindow.print();
+            printWindow.close();
+        }, 500);
+        
+        // Reset button state
+        icon.className = originalIcon;
+        downloadCV.disabled = false;
+    }, 1000);
+});
+
+// ==========================================
 // CONSOLE MESSAGE
 // ==========================================
 console.log('%c👋 Hello! Thanks for visiting my CV!', 'font-size: 20px; color: #6366f1; font-weight: bold;');
 console.log('%cInterested in the code? Check out the repository on GitHub!', 'font-size: 14px; color: #8b5cf6;');
 console.log('%c🚀 Built with HTML, CSS, and vanilla JavaScript', 'font-size: 12px; color: #94a3b8;');
+console.log('%c🌙 Try the Dark/Light mode toggle!', 'font-size: 12px; color: #10b981;');
 
 // ==========================================
 // PERFORMANCE MONITORING
