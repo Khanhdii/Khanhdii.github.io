@@ -298,7 +298,17 @@ body {
     box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-.theme-toggle i,
+.theme-toggle i {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #10b981, #f59e0b);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+    font-size: 1.1rem;
+    transition: all var(--transition-base);
+}
+
 .download-cv i {
     font-size: 1rem;
     transition: all var(--transition-base);
@@ -606,6 +616,15 @@ body {
     100% {
         top: 30px;
         opacity: 0;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
     }
 }
 
