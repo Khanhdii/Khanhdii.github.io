@@ -314,7 +314,12 @@ function animateCounter(element, target, duration = 2000) {
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = target;
+            // Ensure final value is set correctly
+            if (target % 1 !== 0) {
+                element.textContent = target.toFixed(2);
+            } else {
+                element.textContent = Math.floor(target);
+            }
             clearInterval(timer);
         } else {
             // Handle decimal numbers
@@ -332,20 +337,40 @@ const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const statNumber = entry.target.querySelector('.stat-number');
-            const value = statNumber.textContent;
+            const originalValue = statNumber.textContent;
             
-            // Extract number from text (e.g., "10+" -> 10, "3.77" -> 3.77)
-            const match = value.match(/[\d.]+/);
-            if (match) {
-                const target = parseFloat(match[0]);
-                const suffix = value.replace(match[0], '');
-                
-                animateCounter(statNumber, target);
-                
-                // Add suffix back after animation
-                setTimeout(() => {
-                    statNumber.textContent = value;
-                }, 2000);
+            console.log('Animating stat:', originalValue);
+            
+            // Extract number from text (e.g., "10+" -> 10, "3.77" -> 3.77, "#1" -> 1)
+            let match;
+            if (originalValue.includes('#')) {
+                // Handle "#1" case
+                match = originalValue.match(/#(\d+)/);
+                if (match) {
+                    const target = parseInt(match[1]);
+                    const suffix = originalValue.replace(match[0], '');
+                    
+                    animateCounter(statNumber, target);
+                    
+                    // Add suffix back after animation
+                    setTimeout(() => {
+                        statNumber.textContent = originalValue;
+                    }, 2000);
+                }
+            } else {
+                // Handle "10+", "3.77" cases
+                match = originalValue.match(/[\d.]+/);
+                if (match) {
+                    const target = parseFloat(match[0]);
+                    const suffix = originalValue.replace(match[0], '');
+                    
+                    animateCounter(statNumber, target);
+                    
+                    // Add suffix back after animation
+                    setTimeout(() => {
+                        statNumber.textContent = originalValue;
+                    }, 2000);
+                }
             }
             
             statsObserver.unobserve(entry.target);
