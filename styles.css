@@ -1679,17 +1679,30 @@ body {
 [data-theme="blue"] .section-line,
 [data-theme="blue"] .nav-link::after,
 [data-theme="blue"] .timeline::before {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
 }
 
-[data-theme="blue"] .btn-primary,
+[data-theme="blue"] .btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+[data-theme="blue"] .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+[data-theme="blue"] .btn-primary i,
+[data-theme="blue"] .btn-primary {
+    color: white !important;
+}
+
 [data-theme="blue"] .summary-icon,
 [data-theme="blue"] .education-icon,
 [data-theme="blue"] .project-icon,
 [data-theme="blue"] .contact-icon,
 [data-theme="blue"] .stat-icon,
 [data-theme="blue"] .scroll-to-top {
-    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
 }
 
 [data-theme="blue"] .timeline-dot {
@@ -1697,10 +1710,46 @@ body {
     box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
 }
 
+[data-theme="blue"] .publication-card::before {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+}
+
 [data-theme="blue"] .contact-item i,
 [data-theme="blue"] .timeline-achievements li::before,
 [data-theme="blue"] .education-achievements i {
-    color: #3b82f6;
+    color: #3b82f6 !important;
+}
+
+[data-theme="blue"] .filter-btn {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    color: #60a5fa !important;
+}
+
+[data-theme="blue"] .filter-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+    color: white !important;
+    border-color: #3b82f6 !important;
+}
+
+[data-theme="blue"] .btn-secondary {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border: 1px solid rgba(59, 130, 246, 0.3) !important;
+    color: #60a5fa !important;
+}
+
+[data-theme="blue"] .btn-secondary:hover {
+    background: rgba(59, 130, 246, 0.2) !important;
+    border-color: #3b82f6 !important;
+    color: #93c5fd !important;
+}
+
+[data-theme="blue"] .btn-secondary i {
+    color: #60a5fa !important;
+}
+
+[data-theme="blue"] .btn-secondary:hover i {
+    color: #93c5fd !important;
 }
 
 /* Purple Theme */
@@ -1738,17 +1787,30 @@ body {
 [data-theme="purple"] .section-line,
 [data-theme="purple"] .nav-link::after,
 [data-theme="purple"] .timeline::before {
-    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
 }
 
-[data-theme="purple"] .btn-primary,
+[data-theme="purple"] .btn-primary {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important;
+}
+
+[data-theme="purple"] .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4) !important;
+}
+
+[data-theme="purple"] .btn-primary i,
+[data-theme="purple"] .btn-primary {
+    color: white !important;
+}
+
 [data-theme="purple"] .summary-icon,
 [data-theme="purple"] .education-icon,
 [data-theme="purple"] .project-icon,
 [data-theme="purple"] .contact-icon,
 [data-theme="purple"] .stat-icon,
 [data-theme="purple"] .scroll-to-top {
-    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
 }
 
 [data-theme="purple"] .timeline-dot {
@@ -1756,10 +1818,46 @@ body {
     box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
 }
 
+[data-theme="purple"] .publication-card::before {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+}
+
 [data-theme="purple"] .contact-item i,
 [data-theme="purple"] .timeline-achievements li::before,
 [data-theme="purple"] .education-achievements i {
-    color: #8b5cf6;
+    color: #8b5cf6 !important;
+}
+
+[data-theme="purple"] .filter-btn {
+    background: rgba(139, 92, 246, 0.1) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    color: #a78bfa !important;
+}
+
+[data-theme="purple"] .filter-btn.active {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+    color: white !important;
+    border-color: #8b5cf6 !important;
+}
+
+[data-theme="purple"] .btn-secondary {
+    background: rgba(139, 92, 246, 0.1) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+    color: #a78bfa !important;
+}
+
+[data-theme="purple"] .btn-secondary:hover {
+    background: rgba(139, 92, 246, 0.2) !important;
+    border-color: #8b5cf6 !important;
+    color: #c4b5fd !important;
+}
+
+[data-theme="purple"] .btn-secondary i {
+    color: #a78bfa !important;
+}
+
+[data-theme="purple"] .btn-secondary:hover i {
+    color: #c4b5fd !important;
 }
 
 /* Green Theme */
@@ -1809,8 +1907,10 @@ body {
     background-clip: text;
 }
 
-[data-theme="green"] .section-line {
-    background: linear-gradient(135deg, #10b981, #34d399);
+[data-theme="green"] .section-line,
+[data-theme="green"] .nav-link::after,
+[data-theme="green"] .timeline::before {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
 }
 
 [data-theme="green"] .stat-number {
@@ -1821,12 +1921,20 @@ body {
 }
 
 [data-theme="green"] .btn-primary {
-    background: linear-gradient(135deg, #10b981, #34d399);
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
 }
 
 [data-theme="green"] .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+[data-theme="green"] .btn-primary i {
+    color: white !important;
+}
+
+[data-theme="green"] .btn-primary {
+    color: white !important;
 }
 
 [data-theme="green"] .summary-icon,
@@ -1834,11 +1942,11 @@ body {
 [data-theme="green"] .project-icon,
 [data-theme="green"] .contact-icon,
 [data-theme="green"] .stat-icon {
-    background: linear-gradient(135deg, #10b981, #34d399);
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
 }
 
 [data-theme="green"] .timeline::before {
-    background: linear-gradient(180deg, #10b981, #34d399);
+    background: linear-gradient(180deg, #10b981, #34d399) !important;
 }
 
 [data-theme="green"] .timeline-dot {
@@ -1847,18 +1955,50 @@ body {
 }
 
 [data-theme="green"] .publication-card::before {
-    background: linear-gradient(135deg, #10b981, #34d399);
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
 }
 
 [data-theme="green"] .scroll-to-top {
-    background: linear-gradient(135deg, #10b981, #34d399);
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
 }
 
 [data-theme="green"] .contact-item i,
 [data-theme="green"] .timeline-achievements li::before,
 [data-theme="green"] .education-achievements i {
-    color: #10b981;
+    color: #10b981 !important;
+}
+
+[data-theme="green"] .filter-btn {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    color: #34d399 !important;
+}
+
+[data-theme="green"] .filter-btn.active {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+    color: white !important;
+    border-color: #10b981 !important;
+}
+
+[data-theme="green"] .btn-secondary {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    color: #34d399 !important;
+}
+
+[data-theme="green"] .btn-secondary:hover {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #10b981 !important;
+    color: #6ee7b7 !important;
+}
+
+[data-theme="green"] .btn-secondary i {
+    color: #34d399 !important;
+}
+
+[data-theme="green"] .btn-secondary:hover i {
+    color: #6ee7b7 !important;
 }
 
 [data-theme="green"] .theme-toggle,
@@ -1908,17 +2048,33 @@ body {
 [data-theme="orange"] .section-line,
 [data-theme="orange"] .nav-link::after,
 [data-theme="orange"] .timeline::before {
-    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
 }
 
-[data-theme="orange"] .btn-primary,
+[data-theme="orange"] .btn-primary {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3) !important;
+}
+
+[data-theme="orange"] .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4) !important;
+}
+
+[data-theme="orange"] .btn-primary i {
+    color: white !important;
+}
+
+[data-theme="orange"] .btn-primary {
+    color: white !important;
+}
+
 [data-theme="orange"] .summary-icon,
 [data-theme="orange"] .education-icon,
 [data-theme="orange"] .project-icon,
 [data-theme="orange"] .contact-icon,
 [data-theme="orange"] .stat-icon,
 [data-theme="orange"] .scroll-to-top {
-    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
 }
 
 [data-theme="orange"] .timeline-dot {
@@ -1926,10 +2082,46 @@ body {
     box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
 }
 
+[data-theme="orange"] .publication-card::before {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+}
+
 [data-theme="orange"] .contact-item i,
 [data-theme="orange"] .timeline-achievements li::before,
 [data-theme="orange"] .education-achievements i {
-    color: #f59e0b;
+    color: #f59e0b !important;
+}
+
+[data-theme="orange"] .filter-btn {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    color: #fbbf24 !important;
+}
+
+[data-theme="orange"] .filter-btn.active {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+    color: white !important;
+    border-color: #f59e0b !important;
+}
+
+[data-theme="orange"] .btn-secondary {
+    background: rgba(245, 158, 11, 0.1) !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    color: #fbbf24 !important;
+}
+
+[data-theme="orange"] .btn-secondary:hover {
+    background: rgba(245, 158, 11, 0.2) !important;
+    border-color: #f59e0b !important;
+    color: #fcd34d !important;
+}
+
+[data-theme="orange"] .btn-secondary i {
+    color: #fbbf24 !important;
+}
+
+[data-theme="orange"] .btn-secondary:hover i {
+    color: #fcd34d !important;
 }
 
 /* ==========================================
