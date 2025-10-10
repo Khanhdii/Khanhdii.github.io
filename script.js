@@ -846,6 +846,29 @@ if (document.readyState === 'loading') {
 }
 
 // ==========================================
+// SKILLS PROGRESS BARS ANIMATION
+// ==========================================
+const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.skill-progress');
+            progressBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                setTimeout(() => {
+                    bar.style.width = progress + '%';
+                }, 200);
+            });
+            skillsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2 });
+
+// Observe all skill category charts
+document.querySelectorAll('.skill-category-chart').forEach(chart => {
+    skillsObserver.observe(chart);
+});
+
+// ==========================================
 // CONSOLE MESSAGE
 // ==========================================
 console.log('%c👋 Hello! Thanks for visiting my CV!', 'font-size: 20px; color: #6366f1; font-weight: bold;');
