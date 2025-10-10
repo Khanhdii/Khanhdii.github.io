@@ -516,17 +516,13 @@ function initThemeToggle() {
     body.setAttribute('data-theme', currentTheme);
     console.log('Current theme:', currentTheme);
 
-    // Update icon based on current theme
+    // Keep palette icon for theme selector
     function updateThemeIcon(theme) {
         const icon = themeToggle.querySelector('i');
-        if (theme === 'dark') {
-            icon.className = 'fas fa-moon';
-            themeToggle.title = 'Switch to Light Mode';
-        } else {
-            icon.className = 'fas fa-sun';
-            themeToggle.title = 'Switch to Dark Mode';
-        }
-        console.log('Updated icon for theme:', theme);
+        // Always keep palette icon since this is now a theme selector
+        icon.className = 'fas fa-palette';
+        themeToggle.title = 'Choose Theme';
+        console.log('Theme selector ready with palette icon');
     }
 
     // Initialize theme icon
