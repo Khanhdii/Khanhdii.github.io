@@ -536,6 +536,23 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
+/* Override with theme-specific gradients */
+[data-theme="blue"] .btn-primary {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+}
+
+[data-theme="purple"] .btn-primary {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+}
+
+[data-theme="green"] .btn-primary {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+}
+
+[data-theme="orange"] .btn-primary {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+}
+
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl), var(--shadow-glow);
@@ -1003,6 +1020,23 @@ body {
     color: white;
 }
 
+/* Override with theme-specific gradients */
+[data-theme="blue"] .filter-btn.active {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+}
+
+[data-theme="purple"] .filter-btn.active {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+}
+
+[data-theme="green"] .filter-btn.active {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+}
+
+[data-theme="orange"] .filter-btn.active {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+}
+
 .publications-grid {
     display: grid;
     gap: var(--spacing-md);
@@ -1028,6 +1062,23 @@ body {
     background: var(--gradient-primary);
     transform: scaleY(0);
     transition: transform var(--transition-base);
+}
+
+/* Override with theme-specific gradients */
+[data-theme="blue"] .publication-card::before {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+}
+
+[data-theme="purple"] .publication-card::before {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+}
+
+[data-theme="green"] .publication-card::before {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+}
+
+[data-theme="orange"] .publication-card::before {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
 }
 
 .publication-card:hover {
@@ -1507,6 +1558,23 @@ body {
     border-color: transparent;
     color: white;
     transform: translateY(-2px);
+}
+
+/* Override with theme-specific gradients */
+[data-theme="blue"] .footer-links a:hover {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa) !important;
+}
+
+[data-theme="purple"] .footer-links a:hover {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa) !important;
+}
+
+[data-theme="green"] .footer-links a:hover {
+    background: linear-gradient(135deg, #10b981, #34d399) !important;
+}
+
+[data-theme="orange"] .footer-links a:hover {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
 }
 
 /* ==========================================
