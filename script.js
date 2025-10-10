@@ -473,7 +473,9 @@ if ('IntersectionObserver' in window) {
 // ==========================================
 // DARK/LIGHT MODE TOGGLE
 // ==========================================
-document.addEventListener('DOMContentLoaded', function() {
+function initThemeToggle() {
+    console.log('Initializing theme toggle...');
+    
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
@@ -482,9 +484,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    console.log('Theme toggle button found!');
+
     // Check for saved theme preference or default to 'dark'
     const currentTheme = localStorage.getItem('theme') || 'dark';
     body.setAttribute('data-theme', currentTheme);
+    console.log('Current theme:', currentTheme);
 
     // Update icon based on current theme
     function updateThemeIcon(theme) {
@@ -496,6 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
             icon.className = 'fas fa-sun';
             themeToggle.title = 'Switch to Dark Mode';
         }
+        console.log('Updated icon for theme:', theme);
     }
 
     // Initialize theme icon
@@ -503,8 +509,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Theme toggle functionality
     themeToggle.addEventListener('click', () => {
+        console.log('Theme toggle clicked!');
         const currentTheme = body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        console.log('Switching from', currentTheme, 'to', newTheme);
         
         body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
@@ -516,12 +525,21 @@ document.addEventListener('DOMContentLoaded', function() {
             body.style.transition = '';
         }, 300);
     });
-});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+    initThemeToggle();
+}
 
 // ==========================================
 // DOWNLOAD CV AS PDF
 // ==========================================
-document.addEventListener('DOMContentLoaded', function() {
+function initDownloadCV() {
+    console.log('Initializing download CV...');
+    
     const downloadCV = document.getElementById('downloadCV');
 
     if (!downloadCV) {
@@ -529,7 +547,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    console.log('Download CV button found!');
+
     downloadCV.addEventListener('click', () => {
+        console.log('Download CV clicked!');
     // Show loading state
     const icon = downloadCV.querySelector('i');
     const originalIcon = icon.className;
@@ -673,7 +694,14 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadCV.disabled = false;
     }, 1000);
     });
-});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDownloadCV);
+} else {
+    initDownloadCV();
+}
 
 // ==========================================
 // CONSOLE MESSAGE
