@@ -818,6 +818,22 @@ body {
     font-weight: bold;
 }
 
+.experience-section {
+    margin-bottom: var(--spacing-md);
+}
+
+.experience-section h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.experience-section:first-of-type h5 {
+    margin-top: 0;
+}
+
 .timeline-tags {
     display: flex;
     flex-wrap: wrap;
