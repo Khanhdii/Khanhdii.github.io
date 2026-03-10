@@ -495,6 +495,7 @@
                 <div class="section-line"></div>
             </div>
             <div class="projects-grid">
+                <!-- Financial Signal Generator -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
@@ -502,269 +503,115 @@
                         </div>
                         <span class="project-date">06/2024 – 12/2024</span>
                     </div>
-                    <h3>Impact of FOMC Decisions on VND Interest Rates and Exchange Rates</h3>
+                    <h3>Financial Signal Generator for Vietnamese Markets</h3>
                     <p class="project-description">
-                        Research collaboration with State Bank of Vietnam & Ho Chi Minh City University of Law. 
-                        Automated ingestion of FOMC minutes + 100+ macro indicators with time-series features.
+                        Research project commissioned by the State Bank of Vietnam and conducted in collaboration with Ho Chi Minh City University of Banking. 
+                        Built a hybrid forecasting system combining macroeconomic signals (FOMC minutes, interest rates) and market sentiment data (35K+ reviews) to predict short-term movements in the VND exchange rate and stock trends.
                     </p>
                     <ul class="project-highlights">
-                        <li>Comparison of XGBoost/RNN/Transformers by rolling windows</li>
-                        <li>Prediction intervals and post-event analysis</li>
-                        <li>MLflow artifact logging and resampling for pricing/risk signals</li>
+                        <li>Hybrid forecasting with XGBoost, RNN, and Transformer models</li>
+                        <li>Macroeconomic signal extraction from FOMC minutes</li>
+                        <li>Sentiment analysis on 35K+ market reviews</li>
                     </ul>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">BeautifulSoup</span>
                         <span class="tech-tag">XGBoost</span>
-                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">RNN</span>
+                        <span class="tech-tag">Transformer</span>
+                        <span class="tech-tag">BeautifulSoup</span>
                         <span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">GCP</span>
                     </div>
                 </div>
 
+                <!-- Vietnamese Aspect-based Sentiment Analysis -->
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <i class="fas fa-tshirt"></i>
+                            <i class="fas fa-comments"></i>
                         </div>
-                        <span class="project-date">02/2024 – 05/2024</span>
+                        <span class="project-date">12/2024 – 04/2025</span>
                     </div>
-                    <h3>VNFASHIONDIFF: Text-to-Fashion Image Model Using Latent Diffusion</h3>
+                    <h3>Vietnamese Aspect-based Sentiment Analysis</h3>
                     <p class="project-description">
-                        Building a generative model for Vietnamese fashion using Latent Diffusion models. 
-                        Pipeline processing 700K+ images with text descriptions.
+                        Led model development in a research collaboration with Nguyen Tat Thanh University, DayOne AI Lab and Industrial University of Ho Chi Minh City. 
+                        Built an end-to-end NLP system for Vietnamese review analysis (restaurants, hotels, e-commerce).
                     </p>
                     <ul class="project-highlights">
-                        <li>Reproducible train/eval scripts with MLOps workflows</li>
-                        <li>Big data processing experience with feature pipelines</li>
-                        <li>Integration of CLIP and BLIP for text-image alignment</li>
+                        <li>Multi-task Transformer with auxiliary embeddings</li>
+                        <li>Dual-branch CNN with positional attention</li>
+                        <li>Achieved SOTA performance on UIT-ABSA and VLSP benchmarks</li>
                     </ul>
                     <div class="project-tech">
-                        <span class="tech-tag">HuggingFace</span>
+                        <span class="tech-tag">Python</span>
                         <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Latent Diffusion</span>
-                        <span class="tech-tag">CLIP</span>
-                        <span class="tech-tag">BLIP</span>
+                        <span class="tech-tag">Hugging Face</span>
+                        <span class="tech-tag">PhoBERT</span>
+                        <span class="tech-tag">InfoXLM</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <!-- Real-Time Meat Freshness Detection -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <span class="project-date">Q2 Ongoing</span>
+                    </div>
+                    <h3>Real-Time Meat Freshness Detection Using TinyYOLO-Inspired Lightweight CNN</h3>
+                    <p class="project-description">
+                        Fast and Accurate Meat Freshness Classification Using Depthwise Separable Convolution and SPPF. 
+                        Authors: D. H. Khang, T. H. H. Tran, K.-D. Cao-Phan*, N. M. Phuc, D. N. M. Khang, and H. Q. Bui. 
+                        Published in Food Analytical Methods, 2025 (Under Review).
+                    </p>
+                    <ul class="project-highlights">
+                        <li>97% Accuracy on meat freshness classification</li>
+                        <li>2-3ms inference time on 224x224 images</li>
+                        <li>TinyYOLO-inspired lightweight architecture with Depthwise Separable Convolution</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">TinyYOLO</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">SPPF</span>
+                        <span class="tech-tag">Computer Vision</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills with Interactive Progress Bars -->
+    <!-- Skills -->
     <section class="skills section" id="skills">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Skills & Expertise</h2>
+                <h2 class="section-title">Skills</h2>
                 <div class="section-line"></div>
-                <p class="section-subtitle">My technical proficiency across various domains</p>
             </div>
-
-            <!-- Achievement Badges -->
-            <div class="achievement-badges">
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="badge-info">
-                        <h4>10+ Publications</h4>
-                        <p>Q1/Q2 Research Papers</p>
-                    </div>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3><i class="fas fa-flask"></i> Research</h3>
+                    <p>Experimental design, model evaluation, error analysis</p>
                 </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <div class="badge-info">
-                        <h4>Valedictorian</h4>
-                        <p>Top 1 Faculty of IT</p>
-                    </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <p>Python, SQL</p>
                 </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="badge-info">
-                        <h4>ML Expert</h4>
-                        <p>PyTorch & TensorFlow</p>
-                    </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Frameworks</h3>
+                    <p>PyTorch, TensorFlow, scikit-learn, HuggingFace, PennyLane, Playwright, Selenium</p>
                 </div>
-                <div class="badge-item">
-                    <div class="badge-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="badge-info">
-                        <h4>MLOps Pro</h4>
-                        <p>Docker & CI/CD</p>
-                    </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data & Pipelines</h3>
+                    <p>Apache Beam, Spark, PostgreSQL, ClickHouse, Airflow, n8n</p>
                 </div>
-            </div>
-
-            <!-- Interactive Skills Chart -->
-            <div class="skills-chart">
-                <!-- Programming & Frameworks -->
-                <div class="skill-category-chart">
-                    <h3 class="category-title">
-                        <i class="fas fa-code"></i>
-                        Programming & Frameworks
-                    </h3>
-                    <div class="skill-bars">
-                        <div class="skill-bar-item" data-level="95">
-                            <div class="skill-info">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-percentage">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="90">
-                            <div class="skill-info">
-                                <span class="skill-name">PyTorch</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="85">
-                            <div class="skill-info">
-                                <span class="skill-name">TensorFlow</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="80">
-                            <div class="skill-info">
-                                <span class="skill-name">SQL</span>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ML & Data Science -->
-                <div class="skill-category-chart">
-                    <h3 class="category-title">
-                        <i class="fas fa-brain"></i>
-                        ML & Data Science
-                    </h3>
-                    <div class="skill-bars">
-                        <div class="skill-bar-item" data-level="90">
-                            <div class="skill-info">
-                                <span class="skill-name">Deep Learning</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="85">
-                            <div class="skill-info">
-                                <span class="skill-name">Model Optimization</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="88">
-                            <div class="skill-info">
-                                <span class="skill-name">Computer Vision</span>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="87">
-                            <div class="skill-info">
-                                <span class="skill-name">NLP & Audio Processing</span>
-                                <span class="skill-percentage">87%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="87"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data Engineering -->
-                <div class="skill-category-chart">
-                    <h3 class="category-title">
-                        <i class="fas fa-database"></i>
-                        Data Engineering
-                    </h3>
-                    <div class="skill-bars">
-                        <div class="skill-bar-item" data-level="85">
-                            <div class="skill-info">
-                                <span class="skill-name">Apache Beam</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="80">
-                            <div class="skill-info">
-                                <span class="skill-name">Spark & Flink</span>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="82">
-                            <div class="skill-info">
-                                <span class="skill-name">PostgreSQL</span>
-                                <span class="skill-percentage">82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="82"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MLOps & Deployment -->
-                <div class="skill-category-chart">
-                    <h3 class="category-title">
-                        <i class="fas fa-rocket"></i>
-                        MLOps & Deployment
-                    </h3>
-                    <div class="skill-bars">
-                        <div class="skill-bar-item" data-level="88">
-                            <div class="skill-info">
-                                <span class="skill-name">Docker & Containerization</span>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="80">
-                            <div class="skill-info">
-                                <span class="skill-name">CI/CD Pipelines</span>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item" data-level="83">
-                            <div class="skill-info">
-                                <span class="skill-name">MLflow & Monitoring</span>
-                                <span class="skill-percentage">83%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="83"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-rocket"></i> MLOps / Deployment</h3>
+                    <p>Docker, monitoring & drift detection</p>
                 </div>
             </div>
         </div>
