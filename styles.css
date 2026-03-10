@@ -1180,6 +1180,12 @@ body {
     color: #22c55e !important;
 }
 
+.publication-status.under-review {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: var(--warning);
+}
+
 .publication-title {
     font-size: 1.125rem;
     font-weight: 600;
